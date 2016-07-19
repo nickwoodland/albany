@@ -1,0 +1,129 @@
+.top-bar {
+
+    padding-top:rem-calc(20px);
+    padding-bottom: rem-calc(20px);
+
+    .leftcol, .rightcol{
+        @include grid-column(4);
+        position:relative;
+
+        h3{
+            color: $white;
+            font-size: 24px;
+            position:absolute;
+            top:33%;
+        }
+    }
+
+    .leftcol{
+        ul{
+            position: absolute;
+            bottom:0px;
+        }
+    }
+
+    .rightcol{
+        h3{
+            text-align: right;
+        }
+    }
+
+    .site-title{
+        text-align: center;
+    }
+
+  .menu .home a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+
+  .menu .home a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+
+  .menu a {
+    height: 45px;
+    line-height: 45px;
+    color: #e6e6e6;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+
+    &:hover:not(.button) {
+      background-color: #2a2a2a;
+    }
+  }
+
+  .menu>li:not(.menu-text)>a {
+    padding: 1rem;
+  }
+
+  .menu li:not(:last-child) {
+    @include breakpoint(medium) {
+      border-right: 1px solid #4e4e4e;
+    }
+  }
+
+  .dropdown.menu .submenu {
+    background-color: #121212;
+    color: #e6e6e6;
+    border: 0;
+  }
+
+  .dropdown.menu .has-submenu.is-down-arrow a {
+    padding-right: 1rem;
+  }
+
+  .dropdown.menu .has-submenu.is-down-arrow>a::after {
+    border: 0;
+  }
+
+  .top-bar__inner{
+      position:relative;
+
+      .header__cta{
+          position:absolute;
+          top:rem-calc(-20px);
+          right:0px;
+
+          a{
+              display:inline-block;
+          }
+
+          .quote{
+              color: $white;
+              text-decoration: underline;
+              margin-right:1em;
+          }
+
+          .phone{
+              color: $black;
+              background-color: white;
+              padding:0.5em 1em;
+              padding-left:1.5em;
+              font-size:rem-calc(18px);
+              font-weight:600;
+              border-bottom-left-radius:40px;
+          }
+      }
+  }
+
+
+}
+
+.vertical &.menu {
+  padding: 1rem;
+}
+
+.title-bar {
+  @include breakpoint(medium) {
+    display: none;
+  }
+
+  .title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+}

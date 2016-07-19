@@ -1,0 +1,24 @@
+.main-navigation{
+    padding-top:1em;
+    padding-bottom:1em;
+
+    .menu-item{
+
+        border:1px solid $medium-gray;
+        margin-right:1em;
+        display:inline-block;
+
+        a{
+            font-size:18px;
+        }
+
+        &:hover,&.current-menu-item{
+            background-color: $black;
+            border: 1px solid $white;
+
+            a{
+                color: $white;
+            }
+        }
+    }
+}
