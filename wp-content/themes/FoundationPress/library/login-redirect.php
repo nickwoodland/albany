@@ -1,33 +1,35 @@
 <?php
-/**
- * Redirect user after successful login.
- *
- * @param string $redirect_to URL to redirect to.
- * @param string $request URL the user is coming from.
- * @param object $user Logged user's data.
- * @return string
- */
-function file_manager_redirect( $redirect_to, $request, $user ) {
-	//is there a user to check?
-	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-		//check for admins
-		if ( in_array( 'administrator', $user->roles ) ) {
-			// redirect them to the default place
-			return $redirect_to;
-		} else {
-            
-            $file_manager_page = get_page_by_path( 'user-file-page' );
+//// redirect users if not logged in
+function locking_template_redirect(){
 
-            if($file_manager_page):
-			    return get_permalink($file_manager_page->ID);
-            else:
-                return $redirect_to;
-            endif;
-		}
-	} else {
-		return $redirect_to;
-	}
+    global $post;
+
+    $current_post = $post->ID;
+
+    if( !is_front_page() && !is_user_logged_in() ):
+
+        wp_redirect( home_url() );
+        exit();
+
+    endif;
+
 }
+add_action( 'template_redirect', 'locking_template_redirect' );
 
-add_filter( 'login_redirect', 'file_manager_redirect', 10, 3 );
+function login_template_redirect($redirect_to, $request, $user){
+
+    $current_user_id = $user->ID;
+    error_log($current_user_id,0);
+
+    $landing_page = get_user_landing_page($current_user_id);
+
+    error_log($landing_page,0);
+
+    if(false != $landing_page):
+        return $landing_page;
+    else:
+        return $redirect_to;
+    endif;
+}
+add_filter( 'login_redirect', 'login_template_redirect', 10, 3 );
 ?>

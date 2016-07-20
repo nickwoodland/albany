@@ -1,4 +1,33 @@
 <?php
+/// return URL(string) of locale or company connected to user
+/// current_user_id(int) is the ID of the user object you want to retrieve the landing page for
+function get_user_landing_page($current_user_id){
+
+    error_log($current_user_id,0);
+
+    $redirect_to = false;
+
+    $connected_locales = new WP_Query( array(
+      'connected_type' => 'locale_users',
+      'connected_items' => $current_user_id,
+      'nopaging' => true,
+    ) );
+
+    $connected_companies = new WP_Query( array(
+      'connected_type' => 'company_master',
+      'connected_items' => $current_user_id,
+      'nopaging' => true,
+    ) );
+
+    if($connected_companies->have_posts()):
+        $redirect_to =  get_permalink($connected_companies->post->ID);
+    elseif($connected_locales->have_posts()):
+        $redirect_to =  get_permalink($connected_locales->post->ID);
+    endif;
+
+    return $redirect_to;
+}
+
 //connections for company CPT. Powered by p2p plugin
 function p2p_company_connections() {
     // Company to master user
@@ -63,4 +92,4 @@ function p2p_locale_connections() {
         'cardinality' => 'one-to-many'
     ) );
 }
-add_action( 'p2p_init', 'p2p_locale_connections', 10);
+add_action( 'init', 'p2p_locale_connections', 1);
