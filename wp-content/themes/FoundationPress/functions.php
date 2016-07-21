@@ -60,6 +60,9 @@ require_once( 'library/cpt-locales.php' );
 /** p2p connections */
 require_once( 'library/connections.php' );
 
+/** custom user auth functions */
+require_once( 'library/user-auth.php' );
+
 /** Handler for external form submissions*/
 require_once( 'library/form-post-handler.php' );
 
