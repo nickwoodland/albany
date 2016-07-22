@@ -81,6 +81,7 @@
 @import "components/off-canvas";
 @import "components/flex";
 @import "components/nav";
+@import "components/landmark";
 
 
 
@@ -91,3 +92,5 @@
 @import "templates/page-sidebar-left";
 @import "templates/page-full-width";
 @import "templates/single-post";
+@import "templates/single-locale";
+@import "templates/single-company";

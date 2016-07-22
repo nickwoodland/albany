@@ -44,7 +44,8 @@
 // 1. Global
 // ---------
 
-$global-font-size: 16px;
+$global-font-size: 14px;
+$rem-base: $global-font-size;
 $global-width: rem-calc(990);
 $global-lineheight: 1.5;
 $primary-color: #2199e8;
@@ -101,19 +102,19 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 17,
+    'h1': 26,
+    'h2': 24,
+    'h3': 22,
+    'h4': 20,
+    'h5': 18,
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
+    'h1': 26,
+    'h2': 24,
+    'h3': 22,
+    'h4': 20,
+    'h5': 18,
     'h6': 16,
   ),
 );

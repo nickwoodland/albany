@@ -1,0 +1,11 @@
+.landmark{
+    margin-bottom:rem-calc($rem-base*2);
+}
+
+.landmark--half{
+    margin-bottom:rem-calc($rem-base);
+}
+
+.landmark--large{
+    margin-bottom:rem-calc($rem-base*3);
+}

@@ -19,22 +19,25 @@ $connected_locales = new WP_Query( array(
 $post_count = count($connected_locales->posts);
 $i = 0;
 ?>
-<div id="single-post" role="main">
+<div id="page-full-width" role="main">
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
 <?php if($auth != 'none'): ?>
 
-    <h2>Welcome, <?php the_title(); ?></h2>
+    <div class="landmark--large">
+        <h3 class="">Welcome, <?php the_title(); ?></h2>
+        <h4 class="">Please find your company locations below.</h3>
+    </div>
 
     <?php if($connected_locales->have_posts()):?>
         <div class="row">
             <?php while ( $connected_locales->have_posts() ) : $connected_locales->the_post(); ?>
                 <?php $i++; ?>
-                <div class="small-6 medium-4 columns <?php echo ($i == $post_count ? 'end' : ''); ?>">
+                <div class="small-6 medium-3 columns <?php echo ($i == $post_count ? 'end' : ''); ?>">
                     <article class="locale__listing" id="post-<?php the_ID(); ?>">
 
-                        <a href="<?php echo the_permalink(); ?>"><img class="locale__icon--download" alt="pdf download" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pdficon.png"/></a>
+                        <a href="<?php echo the_permalink(); ?>"><img class="locale__icon--view" alt="view locale" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/localeicon.png"/></a>
                         <header class="locale__header--listing">
                             <h4><?php the_title(); ?></h4>
                         </header>

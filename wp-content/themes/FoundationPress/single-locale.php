@@ -39,13 +39,15 @@ endif;
 $post_count = count($connected_reports->posts);
 $i = 0;
 ?>
-<div id="single-post" role="main">
+<div id="page-full-width" role="main">
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
 <?php if($auth != 'none'): ?>
-    <h2>Welcome, <?php echo ($company_link ? '<a href="'.$company_link.'">'.$connected_company->post->post_title.'</a>' : $connected_company->post->post_title ); ?></h2>
-    <h3>Please find reports for your property at <?php the_title(); ?> below.</h3>
+    <div class="landmark--large">
+        <h3>Welcome, <?php echo ($company_link ? '<a href="'.$company_link.'">'.$connected_company->post->post_title.'</a>' : $connected_company->post->post_title ); ?></h3>
+        <h4>Please find reports for your property at <?php the_title(); ?> below.</h4>
+    </div>
 
     <?php if($connected_reports->have_posts()):?>
         <div class="row">
@@ -68,9 +70,11 @@ $i = 0;
 
             <?php endwhile;?>
         </div>
+    <?php else: ?>
+        Sorry, no reports to display.
     <?php endif; ?>
 <?php else: ?>
-    <h1> ERROR NOT ALLOWED</h1>
+    Sorry, you are not authorised to view this.
 <?php endif; ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
