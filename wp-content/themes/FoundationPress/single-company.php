@@ -26,7 +26,7 @@ $i = 0;
 <?php if($auth != 'none'): ?>
 
     <div class="landmark--large">
-        <h3 class="">Welcome, <?php the_title(); ?></h2>
+        <h3 class="company__title">Welcome, <?php the_title(); ?></h2>
         <h4 class="">Please find your company locations below.</h3>
     </div>
 

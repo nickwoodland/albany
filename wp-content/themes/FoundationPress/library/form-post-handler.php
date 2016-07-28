@@ -5,7 +5,7 @@ function form_post_handle() {
     if($data){
 
         //// LOGGING, REMOVE ON PRODUCTION
-        error_log(print_r($data, true), 0);
+        //error_log('json file ' . print_r($data, true), 0);
         ////
 
         //make sure it's coming from valid account
@@ -85,37 +85,7 @@ function form_post_handle() {
                         /// locale creation code here?
                     endif;
 
-
-                    //handle the FTP file
-                    $pdf_folder = WP_CONTENT_DIR . '/uploads/fastform/';
-
-                    $glob_pdf = glob($pdf_folder . $submission_id .'.pdf');
-
-                    $attachment_array = array(
-                        'post_title' => $title_string,
-                        'post_content' => '',
-                        'post_status' => 'publish',
-                        'post_mime_type' => 'pdf',
-                    );
-
-
-                    $pdf_attach_id = wp_insert_attachment($attachment_array, $glob_pdf[0]);
-                    error_log(print_r($pdf_attach_id,true), 0);
-
-
-                    if($pdf_attach_id != 0):
-
-                        $pdf_attach_url = wp_get_attachment_url($pdf_attach_id);
-                        error_log(print_r($pdf_attach_url,true), 0);
-
-                        update_post_meta($new_post_id, $report_prefix . 'pdf_id', $pdf_attach_url);
-                        update_post_meta($new_post_id, $report_prefix . 'pdf_id_id', $pdf_attach_id);
-
-                    else:
-
-                        error_log('unable to create attachment from submission '.$submission_id, 0);
-
-                    endif;
+                    report_pdf_handle($new_post_id, $submission_id);
 
                 else:
 

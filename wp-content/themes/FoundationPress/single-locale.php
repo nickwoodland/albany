@@ -45,7 +45,7 @@ $i = 0;
 
 <?php if($auth != 'none'): ?>
     <div class="landmark--large">
-        <h3>Welcome, <?php echo ($company_link ? '<a href="'.$company_link.'">'.$connected_company->post->post_title.'</a>' : $connected_company->post->post_title ); ?></h3>
+        <h3 class="locale__title">Welcome, <?php echo ($company_link ? '<a href="'.$company_link.'">'.$connected_company->post->post_title.'</a>' : $connected_company->post->post_title ); ?></h3>
         <h4>Please find reports for your property at <?php the_title(); ?> below.</h4>
     </div>
 

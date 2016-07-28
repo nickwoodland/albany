@@ -248,6 +248,14 @@ if ( ! class_exists( 'Foundationpress_img_rebuilder' ) ) :
 
 endif;
 
+add_action('after_setup_theme', 'remove_admin_bar');
+
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
+
 // Add WooCommerce support for wrappers per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 add_action('woocommerce_before_main_content', 'foundationpress_before_content', 10);

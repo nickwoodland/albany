@@ -7,14 +7,16 @@ get_header(); ?>
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <div id="page-full-width" role="main">
-	<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-		<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-		<div class="entry-content">
-			<?php the_content(); ?>
-            <div class="fp-login__wrapper login__wrapper">
-                <?php wp_login_form(); ?>
-            </div>
-		</div>
+    <div class="">
+        <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+        <div class="">
+    	    <div class="entry-content">
+        		<?php the_content(); ?>
+                <div class="fp-login__wrapper login__wrapper">
+                    <?php wp_login_form(); ?>
+                </div>
+    	    </div>
+        </div>
 		<footer>
 			<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
 			<p><?php the_tags(); ?></p>

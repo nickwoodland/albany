@@ -57,18 +57,26 @@ require_once( 'library/cpt-companies.php' );
 /** CPT for Locales */
 require_once( 'library/cpt-locales.php' );
 
+require_once( 'library/cmb-reports.php' );
+
+require_once( 'library/cmb-locales.php' );
+
 /** p2p connections */
 require_once( 'library/connections.php' );
 
 /** custom user auth functions */
 require_once( 'library/user-auth.php' );
 
+/** function to attach FTP'd pdf to a post */
+require_once( 'library/pdf-handle.php' );
+
 /** Handler for external form submissions*/
 require_once( 'library/form-post-handler.php' );
 
-require_once( 'library/cmb-reports.php' );
+/** pdf snatcher cron */
+require_once( 'library/report-cron.php' );
 
-require_once( 'library/cmb-locales.php' );
+
 
 
 
