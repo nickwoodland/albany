@@ -34,6 +34,18 @@ function alb_locale_metaboxes() {
         // 'repeatable'      => true,
     ) );
 
+    $cmb->add_field( array(
+        'name'       => __( 'Locale Postcode', 'cmb2' ),
+//        'desc'       => __( 'field description (optional)', 'cmb2' ),
+        'id'         => $prefix . 'postcode',
+        'type'       => 'text',
+    //    'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+        // 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
+        // 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
+        // 'on_front'        => false, // Optionally designate a field to wp-admin only
+        // 'repeatable'      => true,
+    ) );
+
     // Add other metaboxes as needed
 
 }

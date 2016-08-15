@@ -1,13 +1,35 @@
-.locale__title{
-    a{
-        text-decoration: underline;
+.report__listing{
+
+    padding-right: rem-calc($rem-base);
+
+    .report__header--listing{
+        margin-top: rem-calc(14px);
+        h2{
+            line-height:1;
+        }
+    }
+
+    .report__icon--download{
+        width:80px;
+        height:80px;
+    }
+
+    footer{
+        time{
+            margin-right:rem-calc($rem-base/2);
+        }
     }
 }
 
-.locale__listing{
+.report__year-seperator{
+    span{
+        font-size:rem-calc($rem-base*1.5);
+    }
 
-    text-align: center;
+    border-bottom:1px solid black;
+    margin-bottom:rem-calc($rem-base);
 
-    .locale__header--listing{
+    &:not(:first-child){
+        margin-bottom:rem-calc($rem-base*2);
     }
 }
