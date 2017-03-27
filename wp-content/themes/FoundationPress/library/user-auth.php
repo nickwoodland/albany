@@ -8,11 +8,12 @@
 function alb_user_auth($user_id, $object_id) {
 
     $auth_code = 'none';
+    $user = wp_get_current_user();
 
     $locale_connection = p2p_type( 'locale_users' )->get_p2p_id( $user_id, $object_id );
     $company_connection = p2p_type( 'company_master' )->get_p2p_id( $user_id, $object_id );
 
-    if($company_connection):
+    if($company_connection || array_intersect(array('administrator'), $user->roles )):
         $auth_code = 'master';
         return $auth_code;
     endif;
